@@ -1,34 +1,25 @@
 export default {
-    name: "BootstrapModal",
+	name: "BootstrapModal",
 
-    created() {
-        this.toggleModal()
+	computed: {
+		modal() {
+			return $("#" + this.id)
+		}
 	},
 
 	methods: {
-		hideModal() {
-			$("#" + this.id).modal("hide")
-		},
-
 		showModal() {
-			this.$nextTick(() => {
-				$("#" + this.id)
-					.on("shown.bs.modal", () => this.$emit("open"))
-					.on("hidden.bs.modal", () => this.$emit("close"))
-					.modal("show")
-			})
-		},
+			if (!this.isVisible) return
 
-		toggleModal() {
-			if (this.show)
-				this.showModal()
-			else
-				this.hideModal()
+			this.$nextTick(() => {
+				this.modal.modal("show").on("hidden.bs.modal", () => this.$emit("close", false))
+			})
 		},
 	},
 
-	updated() {
-		this.toggleModal()
+	model: {
+		prop: 'isVisible',
+		event: 'close'
 	},
 
     props: {
@@ -40,9 +31,16 @@ export default {
             type: String,
             required: true
         },
-        show: {
+        isVisible: {
             type: Boolean,
             required: true
         }
-    },
+	},
+
+	watch: {
+		isVisible: {
+			handler: 'showModal',
+			immediate: true
+		}
+	},
 };

@@ -36,7 +36,7 @@ Vue.component('bootstrap-modal', VueBootstrapModal)
     Sign in into your account
 </button>
 
-<bootstrap-modal id="login-form-modal" title="Sign in" :show="showForm" @close="(showForm = false)">
+<bootstrap-modal id="login-form-modal" title="Sign in" v-model="showForm">
     <form>
         <div class="form-group">
             <label for="name">Name</label>
@@ -107,9 +107,21 @@ See a demo version of the project on [codesandbox](https://codesandbox.io/s/vue-
 |------|------|-------------|
 | id | `String` | The modal's css id. jQuery will use the id to show/hide the modal. |
 | title | `String` | The title to be displayed in the modal's header. |
-| show | `Boolean` | Whether to show or not the modal. |
+| isVisible | `Boolean` | Whether to show or not the modal. |
 
-**Note**: The show prop is used to render or not the modal. It doesn't define the `display` style of the modal. For example, `show` can be `true` while the modal's css display is `none`. To avoid this behavior, be sure to assign `false` to the `show` prop by listening to the `@close` event emitted by `bootstrap-modal` whenver the modal closes.
+**Note**: For BootstrapModal to work properly, the prop `isVisible` must be passed using `v-model` or by adding an listener for the `close` event, which triggers when the modal is closed. Here is an example
+
+```html
+<bootstrap-modal title="Custom modal" id="custom-modal" v-model="showModal">
+    <!-- content -->
+</bootstrap-modal>
+
+OR
+
+<bootstrap-modal title="Custom modal" id="custom-modal" :isVisible="showModal" @close="(showModal = false)">
+    <!-- content -->
+</bootstrap-modal>
+```
 
 ## License
 
