@@ -1,6 +1,6 @@
 {
 	"name": "@andresouzaabreu/vue-bootstrap-modal",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"private": false,
 	"description": "A Vue component for creating reusable bootstrap modals.",
     "repository": "https://github.com/AndreSouzaAbreu/vue-bootstrap-modal",

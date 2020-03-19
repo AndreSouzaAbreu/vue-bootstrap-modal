@@ -2,6 +2,16 @@
 
 Vue Bootstrap Modal is a reusable component that you can use accross your project whenever you need to display a simple modal popup. So, you don't have repeat the same html code everytime you want to use a bootstrap modal.
 
+## Table of Contents
+
+- [Get started](#get-started)
+- [Demo](#demo)
+- [Configuration](#configuration)
+- [License](#license)
+- [Versioning](#versioning)
+- [Contributing](#contributing)
+- [Author](#author)
+
 ## Get started
 
 ### Installation
@@ -86,6 +96,10 @@ In this case, if `show` is `true`, it will render the following:
     </div>
 </div>
 ```
+
+## Demo
+
+See a demo version of the project on [codesandbox](https://codesandbox.io/s/vue-bootstrap-modal-demo00-56iw7?fontsize=14&hidenavigation=1&theme=dark).
 
 ## Configuration
 
