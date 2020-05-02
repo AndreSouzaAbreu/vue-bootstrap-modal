@@ -1,25 +1,21 @@
 export default {
 	name: "BootstrapModal",
 
-	computed: {
-		modal() {
-			return $("#" + this.id)
-		}
-	},
-
 	methods: {
 		showModal() {
-			if (!this.isVisible) return
-
-			this.$nextTick(() => {
-				this.modal.modal("show").on("hidden.bs.modal", () => this.$emit("close", false))
-			})
+			if (this.show)
+				$("#" + this.id).modal("show")
 		},
 	},
 
 	model: {
-		prop: 'isVisible',
+		prop: 'show',
 		event: 'close'
+	},
+
+	mounted() {
+		$("#" + this.id).on("hidden.bs.modal", () => this.$emit("close", false))
+		this.showModal()
 	},
 
     props: {
@@ -31,14 +27,14 @@ export default {
             type: String,
             required: true
         },
-        isVisible: {
+        show: {
             type: Boolean,
             required: true
         }
 	},
 
 	watch: {
-		isVisible: {
+		show: {
 			handler: 'showModal',
 			immediate: true
 		}
