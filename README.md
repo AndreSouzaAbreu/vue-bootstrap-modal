@@ -23,20 +23,20 @@ npm install --save @andresouzaabreu/vue-bootstrap-modal
 ### Set up
 
 ```javascript
-import VueBootstrapModal from '@andresouzaabreu/vue-bootstrap-modal'
+import BootstrapModal from '@andresouzaabreu/vue-bootstrap-modal'
 
 // register it globally with whatever name you want
-Vue.component('bootstrap-modal', VueBootstrapModal)
+Vue.component('bs-modal', BootstrapModal)
 ```
 
-### Example Use
+### Example use
 
 ```html
 <button class="btn btn-primary" @click="(showForm = true)">
     Sign in into your account
 </button>
 
-<bootstrap-modal id="login-form-modal" title="Sign in" v-model="showForm">
+<bs-modal id="login-form-modal" title="Sign in" v-model="showForm">
     <form>
         <div class="form-group">
             <label for="name">Name</label>
@@ -55,7 +55,7 @@ Vue.component('bootstrap-modal', VueBootstrapModal)
             </button>
         </div>
     </form>
-</bootstrap-modal>
+</bs-modal>
 ```
 
 In this case, if `show` is `true`, it will render the following:
@@ -105,22 +105,22 @@ See a demo version of the project on [codesandbox](https://codesandbox.io/s/vue-
 
 | prop | type | description |
 |------|------|-------------|
-| id | `String` | The modal's css id. jQuery will use the id to show/hide the modal. |
+| show | `Boolean` | Whether to show or not the modal. |
 | title | `String` | The title to be displayed in the modal's header. |
-| isVisible | `Boolean` | Whether to show or not the modal. |
+| id | `String` | The modal's css id. jQuery will use it to toggle the modal. If `id` is not provided, the default value will be the `title` to kebab case. |
 
 **Note**: For BootstrapModal to work properly, the prop `isVisible` must be passed using `v-model` or by adding an listener for the `close` event, which triggers when the modal is closed. Here is an example
 
 ```html
-<bootstrap-modal title="Custom modal" id="custom-modal" v-model="showModal">
+<bs-modal title="Custom modal" v-model="showModal">
     <!-- content -->
-</bootstrap-modal>
+</bs-modal>
 
 OR
 
-<bootstrap-modal title="Custom modal" id="custom-modal" :isVisible="showModal" @close="(showModal = false)">
+<bs-modal title="Custom modal" :show="showModal" @close="(showModal = false)">
     <!-- content -->
-</bootstrap-modal>
+</bs-modal>
 ```
 
 ## License

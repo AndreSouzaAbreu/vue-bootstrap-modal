@@ -1,9 +1,9 @@
 <template>
-    <div class="modal fade" :id="id" tabindex="-1" role="dialog" :aria-labelledby="(id + 'title')" aria-hidden="true" v-show="show">
+    <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" :aria-labelledby="titleCssId" :id="modalCssId" v-show="show">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" :id="(id + 'title')">
+                    <h5 class="modal-title" :id="titleCssId">
                         {{ title }}
                     </h5>
                     <button type="button" data-dismiss="modal" class="close" aria-label="Close">

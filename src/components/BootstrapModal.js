@@ -1,10 +1,21 @@
 export default {
 	name: "BootstrapModal",
 
+	computed: {
+		modalCssId() {
+			return this.id || toKebabCase(this.title);
+		},
+		titleCssId() {
+			return this.modalCssId + "-title";
+		},
+	},
+
 	methods: {
-		showModal() {
+		toggleModal() {
 			if (this.show)
-				$("#" + this.id).modal("show")
+				$("#" + this.modalCssId).modal("show")
+			else
+				$("#" + this.modalCssId).modal("hide")
 		},
 	},
 
@@ -14,8 +25,9 @@ export default {
 	},
 
 	mounted() {
-		$("#" + this.id).on("hidden.bs.modal", () => this.$emit("close", false))
-		this.showModal()
+		$("#" + this.modalCssId).on("hidden.bs.modal", () => this.$emit("close", false))
+
+		this.toggleModal()
 	},
 
     props: {
@@ -25,7 +37,6 @@ export default {
         },
         id: {
             type: String,
-            required: true
         },
         show: {
             type: Boolean,
@@ -35,8 +46,16 @@ export default {
 
 	watch: {
 		show: {
-			handler: 'showModal',
+			handler: 'toggleModal',
 			immediate: true
 		}
 	},
 };
+
+function toKebabCase(str) {
+	return str.replace(/[\s_]+/g, "-")
+			  .replace(/([a-z])([A-Z])/g, "$1-$2")
+			  .replace(/-+/g, "-")
+			  .replace(/-+$/, "")
+			  .toLowerCase();
+}
