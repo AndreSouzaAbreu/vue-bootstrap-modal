@@ -3,24 +3,25 @@
 	"version": "1.2.0",
 	"private": false,
 	"description": "A Vue component for creating reusable bootstrap modals.",
-    "repository": "https://github.com/AndreSouzaAbreu/vue-bootstrap-modal",
-    "bugs": "https://github.com/AndreSouzaAbreu/vue-bootstrap-modal/issues",
-    "license": "MIT",
+	"repository": "https://github.com/AndreSouzaAbreu/vue-bootstrap-modal",
+	"bugs": "https://github.com/AndreSouzaAbreu/vue-bootstrap-modal/issues",
+	"license": "MIT",
 	"scripts": {
 		"serve": "vue-cli-service serve",
 		"build": "vue-cli-service build",
-        "build:npm": "vue-cli-service build --target lib --name BootstrapModal src/components/BootstrapModal.vue"
+		"build:npm": "vue-cli-service build --target lib --name BootstrapModal src/components/BootstrapModal.vue"
 	},
-    "main": "dist/BootstrapModal.umd.js",
-    "unpkg": "dist/BootstrapModal.umd.min.js",
+	"main": "dist/BootstrapModal.umd.js",
+	"unpkg": "dist/BootstrapModal.umd.min.js",
 	"dependencies": {
 		"bootstrap": "^4.4.1",
 		"core-js": "^3.6.4",
-		"jquery": "^3.4.1",
+		"jquery": "^3.5.1",
 		"popper.js": "^1.16.1",
 		"vue": "^2.6.11"
 	},
 	"devDependencies": {
+		"@babel/compat-data": "^7.10.1",
 		"@vue/cli-plugin-babel": "~4.2.0",
 		"@vue/cli-plugin-router": "~4.2.0",
 		"@vue/cli-plugin-unit-mocha": "~4.2.0",
@@ -32,18 +33,18 @@
 		"sass-loader": "^8.0.2",
 		"vue-template-compiler": "^2.6.11"
 	},
-    "files": [
-        "dist/*",
-        "src/*",
-        "*.json",
-        "*.js"
+	"files": [
+		"dist/*",
+		"src/*",
+		"*.json",
+		"*.js"
 	],
 	"keywords": [
 		"vue-bootstrap-modal",
-        "bootstrap-modal",
-        "vue-modal",
-        "bootstrap",
+		"bootstrap-modal",
+		"vue-modal",
+		"bootstrap",
 		"modal",
 		"vue"
-    ]
+	]
 }
